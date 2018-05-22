@@ -96,9 +96,18 @@ public class CompanyApiUrl implements CompanyAPisInterface.CompanyApiUrlInterfac
     
    Response response = new Response();
    List phoneList = new ArrayList<String>();
-   phoneList.add(phone1);
-   phoneList.add(phone2);
-   phoneList.add(phone3);
+   if(!phone1.isEmpty())
+   {    
+    phoneList.add(phone1);
+   }
+   if(!phone2.isEmpty())
+   {    
+    phoneList.add(phone2);
+   }
+   if(!phone3.isEmpty())
+   {    
+    phoneList.add(phone3);
+   }
    Company company = new Company(name, email, latitude, longitude, address, companyPackage, startDate, endDate, ceo, insuranceId,phoneList);
    CompanyDaoInterface implObject = new CompanyDaoImplementation();
     boolean isInserted = implObject.insertCompany(company);
@@ -139,9 +148,18 @@ public class CompanyApiUrl implements CompanyAPisInterface.CompanyApiUrlInterfac
     {
       Response response = new Response();
       List phoneList = new ArrayList<String>();
-      phoneList.add(phone1);
-      phoneList.add(phone2);
-      phoneList.add(phone3);  
+      if(!phone1.isEmpty())
+      {    
+       phoneList.add(phone1);
+      }
+        if(!phone2.isEmpty())
+      { 
+        phoneList.add(phone2);
+      }
+        if(!phone3.isEmpty())
+      {   
+        phoneList.add(phone3);  
+      }
       Company company = new Company(id, name, email, latitude, longitude, address, companyPackage, startDate, endDate, ceo, insuranceId,phoneList);
       CompanyDaoInterface implObject = new CompanyDaoImplementation();
       boolean isInserted = implObject.updateCompany(company);
